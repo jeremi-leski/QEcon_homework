@@ -63,6 +63,11 @@ function plot_powers(n)
     display(power_plots)  
 end
 
+function count_positives_broadcasting(vector)
+    return sum(vector .>0) 
+end
+
+
 
 # Problem 6
 function standard_deviation(x)
@@ -76,9 +81,9 @@ x=[1, 2, 5]
 sum(x)
 
 # Problem 7
-data_homework = readdlm("data_analysis//datasets//dataset.csv",',',Float64) 
+data_homework = readdlm("quantitative economics\\QEcon_homework\\dataset.csv", ',',Float64)    
 data_homework   
-earnings=(data_homework[:,1])   
+earnings=(data_homework[:,1])    
 education=(data_homework[:,2])
 hours_worked=(data_homework[:,3])
 plot_1 = scatter(education,earnings ; legend=false, color=:blue, markersize = 5, opacity=0.7)
