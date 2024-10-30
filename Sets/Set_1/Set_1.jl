@@ -77,11 +77,11 @@ function standard_deviation(x)
 end
 x=[1, 2, 5]
  standard_deviation(x)
- n
+ n  
 sum(x)
 
 # Problem 7
-data_homework = readdlm("quantitative economics\\QEcon_homework\\dataset.csv", ',',Float64)    
+data_homework = readdlm("\\quantitative economics\\QEcon_homework\\Sets\\Set_1\\dataset\\dataset.csv\\", ',',Float64)    
 data_homework   
 earnings=(data_homework[:,1])    
 education=(data_homework[:,2])
