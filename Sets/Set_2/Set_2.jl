@@ -24,7 +24,6 @@ end
 
 return (1, NaN, NaN, NaN, iterates, residuals)
 
-end
 
 function somerandomfunction(x)
 return (x + 1)^(1/3) - x
