@@ -55,3 +55,39 @@ return r0
 end
 
 internal_rate([1,2,3,4,5])
+
+
+
+#Problem 4
+
+#Step 3
+
+function cost_function(x, α, σ, w1, w2, y)
+    x1, x2 = x
+    return w1 * x1 + w2 * x2
+end
+
+function ces_production(x1, x2, α, σ)
+    if σ == 1
+        return x1^α * x2^(1-α)
+    else
+        return ((α * x1^σ + (1-α) * x2^σ)^(1/σ))
+    end
+end
+
+
+
+function solve_minimization(α, σ, w1, w2, y)
+    objective(x) = cost_function(x, α, σ, w1, w2, y)
+    constraints(x) = ces_production(x[1], x[2], α, σ) - y
+    initial_guess = [1.0, 1.0]
+    lower_bounds = [0.0, 0.0]
+    upper_bounds = [Inf, Inf]
+    result = optimize(objective, lower_bounds, upper_bounds, initial_guess, Fminbox())
+    x_opt = result.minimizer
+    return objective(x_opt), x_opt[1], x_opt[2]
+end
+
+
+cost, x1, x2 = solve_minimization(0.5, 0.8, 1.0, 1.0, 10.0)
+
