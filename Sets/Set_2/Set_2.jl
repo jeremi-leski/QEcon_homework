@@ -75,8 +75,6 @@ function ces_production(x1, x2, α, σ)
     end
 end
 
-
-
 function solve_minimization(α, σ, w1, w2, y)
     objective(x) = cost_function(x, α, σ, w1, w2, y)
     constraints(x) = ces_production(x[1], x[2], α, σ) - y
